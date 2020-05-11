@@ -8,7 +8,7 @@ namespace Kimitri;
 class CurriedFn {
   protected $fn;              // Function to curry
   protected $paramCount;      // Parameters to collect before calling
-  protected $paramMap;
+  protected $paramMap;        // Parameter ordering map
 
   /**
    * Constructor.
@@ -30,9 +30,9 @@ class CurriedFn {
     $reflection = new \ReflectionFunction($fn);
     $arity = $reflection->getNumberOfParameters();
 
-    $this->paramCount = (is_null($numParams) || $numParams < 2 || $numParams > $arity) ? $arity : $numParams;
+    $this->paramCount = (!is_int($numParams) || $numParams < 2 || $numParams > $arity) ? $arity : $numParams;
 
-    $this->paramMap = (!is_null($paramMap) && count($paramMap) == $this->paramCount) ? $paramMap : null;
+    $this->paramMap = (is_array($paramMap) && count($paramMap) == $this->paramCount) ? $paramMap : null;
   }
 
   /**
