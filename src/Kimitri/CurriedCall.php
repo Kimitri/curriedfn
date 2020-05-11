@@ -14,7 +14,7 @@ class CurriedCall {
   /**
    * Constructor.
    * 
-   * @param callable $fn
+   * @param callable   $fn
    * Function to curry.
    * 
    * @param int        $paramCount
