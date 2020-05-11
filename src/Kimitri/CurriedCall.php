@@ -40,13 +40,12 @@ class CurriedCall {
    * collected.
    */
   public function __invoke($arg) {
-    $currentArguments = array_merge($this->arguments, [$arg]);
+    $arguments = array_merge($this->arguments, [$arg]);
     
-    if (count($currentArguments) === $this->paramCount) {
-      return call_user_func_array($this->fn, $currentArguments);
+    if (count($arguments) === $this->paramCount) {
+      return call_user_func_array($this->fn, $arguments);
     }
     
-    $this->arguments = $currentArguments;
-    return new CurriedCall($this->fn, $this->paramCount, $this->arguments);
+    return new CurriedCall($this->fn, $this->paramCount, $arguments);
   }
 }
