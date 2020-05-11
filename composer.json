@@ -1,0 +1,19 @@
+{
+    "name": "kimitri/curriedfn",
+    "description": "Curried function calls in PHP.",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Kimmo Tapala",
+            "email": "kimitri@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Kimitri": "src/"
+        }
+    }
+}
